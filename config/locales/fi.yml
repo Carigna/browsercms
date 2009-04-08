@@ -1,0 +1,89 @@
+fi:
+  browsercms:
+    add_content_to_this_container: Lis&auml;&auml; sis&auml;lt&ouml;&auml; t&auml;h&auml;n laatikkoon ({{name}})
+    add_new_content: Lis&auml;&auml; sis&auml;lt&ouml;&auml;
+    add_link: Lis&auml;&auml; linkki
+    add_page: Lis&auml;&auml; sivu
+    add_section: Luo uusi hakemisto
+    comment: Kommentti
+    content_not_published: This content is a draft and won't be seen by site visitors until this page is published.
+    content_published: This content is published and can be seen by site visitors.
+    current: (NYKYINEN)
+    date: P&auml;iv&auml;ys
+    delete: Poista
+    draft: luonnos
+    edit_content: Muokkaa sis&auml;lt&ouml;&auml;
+    edit_page: Muokkaa sivua
+    edit_properties_title: Muokkaa asetuksia / {{name}} Page
+    edit_properties: Muokkaa asetuksia
+    edit_this_content: Muokkaa valittua sis&auml;lt&ouml;&auml; ({{content_name}})
+    editor: Muokkaaja
+    insert_content_to_this_container: Insert existing content into this container ({{name}})
+    list_all: Listaa kaikki
+    list_versions_title: Listaa versiot / {{name}} Sivu
+    list_block_versions: Listaa versiot / ({{name}}) {{display_name}}
+    live: (JULKAISTU)
+    move_this_content_down: Move this content down ({{content_name}})
+    move_this_content_up: Move this content up ({{content_name}})
+    new_page: Uusi sivu
+    published: julkaistu
+    publish: Julkaise
+    remove_this_content_from_library: Remove this content from page ({{content_name}}).  It will remain available in the Content Library.
+    revert: Palauta
+    save: Tallenna
+    sitemap: Sivukartta
+    status: Tila
+    version: Versio
+    view_this_content: N&auml;yt&auml; valittu sis&auml;lt&ounl; ({{content_name}})
+    view: N&auml;yt&auml;
+    delete_record_question: Haluatko varmasti poistaa valitun tietueen
+    list_versions: Listaa versiot
+    page_drafts: Sivu luonnokset
+    all_pages_are_published: Kaikki sivut on julkaistu
+    name: Nimi
+    user: K&auml;ytt&auml;j&auml;
+    tasks: Teht&auml;v&auml;t
+    assigned_by: Omistaja
+    due_date: Er&auml;p&auml;iv&auml;
+    no_tasks: Sinulla ei ole teht&auml;vi&auml; t&auml;ll&auml;hetkell&auml;
+    view_content: N&auml;yt&auml; sis&auml;lt&ouml;
+    version_list_title: Sis&auml;lt&ouml; Kirjasto / Versio lista
+    delete_block_question: Haluatko varmasti poistaa osion {{name}}?
+    search: Etsi
+    content_types: Sis&auml;lt&ouml; tyypit
+    include_body: Etsi my&ouml;s sis&auml;ll&ouml;st&auml;?
+    my_dashboard: Ty&ouml;p&ouml;yt&auml;
+    content_library: Sis&auml;lt&ouml;kirjasto
+    administration: Hallinta
+    activation: Aktivointi
+    expiration: Er&auml;&auml;ntyy
+    groups: Ryhm&auml;t
+    email: S&auml;hk&ouml;posti
+    add_user: Lis&auml;&auml; k&auml;ytt&auml;j&auml;
+    list_users: K&auml;ytt&auml;j&auml;t
+    user_browser: K&auml;ytt&auml;j&auml;t
+    no_results_found: Hakusanalla '{{keyword}}' ei l&ouml;ytynyt tuloksia
+    users: K&auml;ytt&auml;j&auml;t
+    tools: Ty&ouml;kalut
+    page_caching: Sivujen V&auml;limuisti
+    email_messages: S&auml;hk&ouml;posti viestit
+    redirects: Uudelleenohjaukset
+    templates: Sivupohjat
+    page_templates: Sivupohjat
+    page_partials: Sivuosiot
+    logout: Poistu
+    group_browser: Ryhm&auml;t
+    add_group: Lis&auml;&auml; Ryhm&auml;
+    type: Tyyppi
+    permissions: Oikeudet
+    list_groups: Ryhm&auml;t
+    updated_at: P&auml;ivitetty
+    add: Lis&auml;&auml;
+    edit: Muokkaa
+    list_dynamic_view: Listaa {{name}}
+    hidden: PIILOTETTU
+    edit_content_title: Muokaa '{{name}}' {{display_name}}
+    used: K&auml;yt&ouml;ss&auml;
+    block_contents: Sis&auml;lt&ouml;
+    used_on: K&auml;yt&ouml;ss&auml;
+
