@@ -1,0 +1,11 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  pages:
+    edit_properties: Edit Properties
+    list_all: list all
+    edit_content: edit content
+    save: Save
+    published: This content is published and can be seen by site visitors.    
+    not_publiched: This content is a draft and won't be seen by site visitors until this page is published.
