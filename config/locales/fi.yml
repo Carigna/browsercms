@@ -71,9 +71,7 @@ fi:
     content_library: Sis&auml;lt&ouml;kirjasto
     administration: Hallinta
     activation: Aktivointi
-    expiration: Er&auml;&auml;ntyy
     groups: Ryhm&auml;t
-    email: S&auml;hk&ouml;posti
     add_user: Lis&auml;&auml; k&auml;ytt&auml;j&auml;
     list_users: K&auml;ytt&auml;j&auml;t
     user_browser: K&auml;ytt&auml;j&auml;t
@@ -81,8 +79,6 @@ fi:
     users: K&auml;ytt&auml;j&auml;t
     tools: Ty&ouml;kalut
     page_caching: Sivujen V&auml;limuisti
-    email_messages: S&auml;hk&ouml;posti viestit
-    redirects: Uudelleenohjaukset
     templates: Sivupohjat
     page_templates: Sivupohjat
     page_partials: Sivuosiot
@@ -113,9 +109,26 @@ fi:
     "off": "Off"
     save_and_publish: Tallenna ja julkaise
     add_content_title: Lis&auml;&auml; uusi {{name}}
+    user:
+      name: Nimi
+      email: S&auml;hk&ouml;posti
+      expiration: Er&auml;&auml;ntyy
+      groups: Ryhm&auml;t
+      activation: Aktivoitu
+    redirects:
+      title: Uudelleenohjaukset
+      link: Uudelleenohjaukset
+      from: Mist&auml;
+      to: Minne
+    email:
+      title: S&auml;hk&ouml;posti viestit
+      link: S&auml;hk&ouml;posti viestit
+      no_messages: Ei s&auml;hk&ouml;postiviestej&auml;
+      recipient: Vastaanottaja
+      subject: Aihe
+      delivered: Toimitettu
     content_type:
       Text: Texti
       Portlet: Portletti
       File: Tiedosto
       Image: Kuva
-

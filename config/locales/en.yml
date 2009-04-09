@@ -55,18 +55,13 @@ en:
     my_dashboard: My Dashboard
     content_library: Content Library
     administration: Administration
-    activation: Activation
-    expiration: Expiration
     groups: Groups
-    email: Email
     add_user: Add User
     list_users: List Users
     no_results_found: No results found for '{{keyword}}'
     users: Users
     tools: Tools
     page_caching: Page Caching
-    email_messages: Email Messages
-    redirects: Redirects
     templates: Templates
     page_templates: Page Templates
     page_partials: Page Partials
@@ -96,8 +91,27 @@ en:
     turn_off: Turn Off
     "on": "On"
     "off": "Off"
-    save_and_publish: Tallenna ja julkaise
+    save_and_publish: Save And Publish
     add_content_title: Add New {{name}}
+    user:
+      name: Name
+      email: Email
+      expiration: Expiration
+      groups: Groups
+      activation: Activation
+    redirects:
+      title: List Redirects
+      link: Redirects
+      from: From
+      to: To
+    email:
+      title: Email Messages
+      link: Email Messages
+      name: Email
+      no_messages: No email messages.
+      recipient: To
+      subject: Subject
+      delivered: Delivered
     content_type:
       Text: Text
       Portlet: Portlet

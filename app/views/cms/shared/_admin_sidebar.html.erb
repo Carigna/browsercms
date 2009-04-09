@@ -22,8 +22,8 @@
   <h3><%= t 'browsercms.tools' %></h3>
   <ul>
     <li<%= ' class="open"' if @menu_section == 'caching' %>><%= link_to t('browsercms.page_caching'), cms_cache_path %></li>
-    <li<%= ' class="open"' if @menu_section == 'redirects' %>><%= link_to t('browsercms.redirects'), cms_redirects_path %></li>
-    <li<%= ' class="open"' if @menu_section == 'email_messages' %>><%= link_to t('browsercms.email_messages'), cms_email_messages_path %></li>
+    <li<%= ' class="open"' if @menu_section == 'redirects' %>><%= link_to t('browsercms.redirects.link'), cms_redirects_path %></li>
+    <li<%= ' class="open"' if @menu_section == 'email_messages' %>><%= link_to t('browsercms.email.link'), cms_email_messages_path %></li>
   </ul>
 </div>
 <div class="bottom_cap"></div>

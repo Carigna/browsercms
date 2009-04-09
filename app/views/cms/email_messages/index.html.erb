@@ -1,14 +1,14 @@
-<% @page_title = "Administration / Email Messages" %>
-<% @toolbar_title = "Email Messages" %>
+<% @page_title = t('browsercms.administration')+" / "+t('browsercms.email.title') %>
+<% @toolbar_title = t('browsercms.email.title') %>
 
 <div class="roundedcorners">
   <table  class="data" width="100%">
     <thead>
       <tr>
         <th class="first"></th>
-        <th><div class="dividers">To</div></th>
-        <th><div class="dividers">Subject</div></th>
-        <th style="width: 20%;">Delivered</th>
+        <th><div class="dividers"><%= t 'browsercms.email.recipient' %></div></th>
+        <th><div class="dividers"><%= t 'browsercms.email.subject' %></div></th>
+        <th style="width: 20%;"><%= t 'browsercms.email.delivered' %></th>
 	<th class="last"></th>
     </tr>
   </thead>
@@ -25,7 +25,7 @@
     <% if @messages.empty? %>
       <tr>
 	<td class="first">&nbsp;</td>
-	<td colspan="3" style="height: 30px; padding-top:10px; letter-spacing: 2px;">No email messages.</td>
+	<td colspan="3" style="height: 30px; padding-top:10px; letter-spacing: 2px;"><%= t('browsercms.email.no_messages') %></td>
 	<td class="last">
       </tr>
     <% end %>
