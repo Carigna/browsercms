@@ -10,8 +10,8 @@ class Tag < ActiveRecord::Base
     with_scope(:find => { 
         :select => "tags.id, tags.name, count(*) as count", 
         :joins => :taggings, 
-        :group => "id, name", 
-        :order => "count desc" }) do
+        :group => "tags.id, tags.name", 
+        :order => "count desc, tags.name" }) do
       all(options)
     end
   end
@@ -52,11 +52,8 @@ class Tag < ActiveRecord::Base
       {:label => "Updated On", :method => :updated_on_string, :order => "updated_at"}  ]
   end  
   
-  def renderer(tag)
-    lambda do
-      render :partial => 'cms/tags/tag', :locals => {:tag => tag}
-    end
-
+  def render
+    @taggings = @content_block.taggings.paginate(:page => params[:page])
   end  
   
 end
