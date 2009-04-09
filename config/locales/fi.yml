@@ -1,4 +1,17 @@
 fi:
+  activerecord:
+    attributes:
+      page:
+        title: Otsikko
+        path: Polku
+        name: Nimi
+        template_file_name: Sivupohja
+        description: Kuvaus
+        keywords: Avainsanat
+        language: Kieli
+        hidden: Piilota valikoista?
+        archived: Arkistoitu?
+        cacheable: V&auml;limuisti aktivoitu?
   browsercms:
     add_content_to_this_container: Lis&auml;&auml; sis&auml;lt&ouml;&auml; t&auml;h&auml;n laatikkoon ({{name}})
     add_new_content: Lis&auml;&auml; sis&auml;lt&ouml;&auml;
@@ -14,7 +27,8 @@ fi:
     draft: luonnos
     edit_content: Muokkaa sis&auml;lt&ouml;&auml;
     edit_page: Muokkaa sivua
-    edit_properties_title: Muokkaa asetuksia / {{name}} Page
+    edit_properties_page_title: Muokkaa asetuksia / {{name}} Sivu
+    edit_properties_section_title: Muokkaa asetuksia / {{name}} Lokero
     edit_properties: Muokkaa asetuksia
     edit_this_content: Muokkaa valittua sis&auml;lt&ouml;&auml; ({{content_name}})
     editor: Muokkaaja
@@ -33,6 +47,7 @@ fi:
     save: Tallenna
     sitemap: Sivukartta
     status: Tila
+    section: Lokero
     version: Versio
     view_this_content: N&auml;yt&auml; valittu sis&auml;lt&ounl; ({{content_name}})
     view: N&auml;yt&auml;
@@ -86,4 +101,21 @@ fi:
     used: K&auml;yt&ouml;ss&auml;
     block_contents: Sis&auml;lt&ouml;
     used_on: K&auml;yt&ouml;ss&auml;
+    page: Sivu
+    template: Sivupohja
+    assign: Yhdist&auml;
+    complete_task: Suorita Teht&auml;v&auml;
+    revert_to_this_version: Palauta valittu versio
+    visual_editor: Visuaalinen Editori
+    turn_on: P&auml;&auml;lle
+    turn_off: Pois
+    "on": "On"
+    "off": "Off"
+    save_and_publish: Tallenna ja julkaise
+    add_content_title: Lis&auml;&auml; uusi {{name}}
+    content_type:
+      Text: Texti
+      Portlet: Portletti
+      File: Tiedosto
+      Image: Kuva
 

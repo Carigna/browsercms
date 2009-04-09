@@ -1,9 +1,9 @@
-<% @page_title = "Administration / User Browser" %>
-<% @toolbar_title = "List Users" %>
+<% @page_title = t('browsercms.administration') + " / " + t('browsercms.user_browser') %>
+<% @toolbar_title = t 'browsercms.list_users' %>
 
 <% content_for :toolbar_links do %>
-  <%= link_to(span_tag("ADD USER"), new_cms_user_path, 
-    :id => "add_user_button", 
+  <%= link_to(span_tag(t 'browsercms.add_user'), new_cms_user_path,
+    :id => "add_user_button",
     :class => "button") %>
 <% end %>
 
@@ -16,11 +16,11 @@
   <thead>
     <tr>
       <th class="first"></th>
-      <th><div class="dividers">Name</div></th>
-      <th><div class="dividers">Email</div></th>
-      <th><div class="dividers">Groups</div></th>
-      <th><div class="dividers">Expiration</div></th>
-      <th class="last" colspan="2">Activation</th>
+      <th><div class="dividers"><%= t 'browsercms.name' %></div></th>
+      <th><div class="dividers"><%= t 'browsercms.email' %></div></th>
+      <th><div class="dividers"><%= t 'browsercms.groups' %></div></th>
+      <th><div class="dividers"><%= t 'browsercms.expiration' %></div></th>
+      <th class="last" colspan="2"><%= t 'browsercms.activation' %></th>
     </tr>
   </thead>
     <% @users.each do |user|%>
@@ -39,7 +39,7 @@
         <td>
 	  <% unless user.expired? %>
 	  <span class="user_state">Active</span>
-            <%= link_to("<span>Disable</span>", [:disable, :cms, user], :class => "http_put sm_button") if @users.size > 1 %>	  
+            <%= link_to("<span>Disable</span>", [:disable, :cms, user], :class => "http_put sm_button") if @users.size > 1 %>
 	    <% else %>
 	  <span class="user_state">Inactive</span>
             <%= link_to("<span>Enable</span>", [:enable, :cms, user], :class => "http_put sm_button") %>
@@ -55,7 +55,7 @@
 <div class="br"></div>
 </div>
 <% if @users.size == 0 && params[:key_word]%>
-  <div class="pagination">No results found for '<%= params[:key_word] %>'</div>
+  <div class="pagination"><%= t('browsercms.no_results_found', :keyword => params[:key_word]) %></div>
 <% elsif @users.total_pages > 1 %>
   <%= render_pagination @users, :users %>
 <% end %>

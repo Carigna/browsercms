@@ -1,8 +1,8 @@
-<% @page_title = "Administration / Group Browser" %>
-<% @toolbar_title = "List Groups" %>
+<% @page_title = t('browsercms.administration') + " / " + t('browsercms.group_browser') %>
+<% @toolbar_title = t('browsercms.list_groups') %>
 
-<% content_for :functions do %> 
-  <%= link_to(span_tag("Add Group"), new_cms_group_path, 
+<% content_for :functions do %>
+  <%= link_to(span_tag(t 'browsercms.add_group'), new_cms_group_path,
     :id => "new_group_button", :class => "button") %>
 <% end %>
 
@@ -13,15 +13,15 @@
         <th class="first"></th>
         <th>
           <div class="dividers">
-            <%= link_to "Name", cms_groups_path(:order => determine_order(params[:order], "groups.name")) %>
+            <%= link_to t('browsercms.name'), cms_groups_path(:order => determine_order(params[:order], "groups.name")) %>
           </div>
         </th>
         <th>
           <div class="dividers">
-            <%= link_to "Type", cms_groups_path(:order => determine_order(params[:order], "group_types.name")) %>
+            <%= link_to t('browsercms.type'), cms_groups_path(:order => determine_order(params[:order], "group_types.name")) %>
           </div>
         </th>
-        <th class="last">Permissions</th>
+        <th class="last"><%= t 'browsercms.permissions' %></th>
         <th class="last"></th>
       </tr>
     </thead>

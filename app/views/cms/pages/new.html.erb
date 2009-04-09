@@ -8,9 +8,9 @@ jQuery(function($){
       $("#page_path").val(section.path)
     } else {
       $("#page_path").val(
-        section.path.replace(/\/$/, '') + 
-        "/" 
-        + 
+        section.path.replace(/\/$/, '') +
+        "/"
+        +
         $.trim(page_name.toLowerCase().replace(/\W+/g, ' ')).replace(/\ +/g, '-')
       )
     }
@@ -19,15 +19,15 @@ jQuery(function($){
 </script>
 <% end %>
 
-<% @page_title = "New Page" %>
+<% @page_title = t 'browsercms.new_page' %>
 <% content_for :functions do %>
-<%= "<h1>#{ @page_title }</h1>" %> 
+<%= "<h1>#{ @page_title }</h1>" %>
 <%= link_to(span_tag("list all"), cms_sitemap_path, :class => "button") %>
 <br clear="all"/>
 <% end %>
 <% form_for([:cms, @page]) do |f| %>
   <%= hidden_field_tag :section_id, @page.section_id %>
-  
+
   <%= render :partial => 'form', :locals => {:f => f} %>
   <div class="buttons">
   <%= lt_button_wrapper(f.submit("Save", :class => "submit", :tabindex => next_tabindex)) %>

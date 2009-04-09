@@ -1,18 +1,18 @@
 <% content_for :html_head do %>
   <%= stylesheet_link_tag 'cms/sitemap' %>
-  <%= javascript_include_tag 'cms/sitemap' %>  
+  <%= javascript_include_tag 'cms/sitemap' %>
 <% end %>
 
-<% @page_title = "Sitemap" %>
+<% @page_title = t 'browsercms.sitemap' %>
 
 <% content_for :functions do %>
-  <h1>Sitemap</h1>
-  <%= link_to span_tag("Edit Page"), '#', :id => 'edit-button', :class => "button disabled left" %>
-  <%= link_to span_tag("Edit Properties"), '#', :id => 'properties-button', :class => "button disabled right" %>
-  <%= link_to span_tag("Add Page"), '#', :id => 'add-page-button', :class => "button disabled spacer left" %>
-  <%= link_to span_tag("Add Section"), '#', :id => 'add-section-button', :class => "button disabled middle" %>
-  <%= link_to span_tag("Add Link"), '#', :id => 'add-link-button', :class => "button disabled right" %>
-  <%= link_to span_tag("<span class=\"delete_img\">&nbsp;</span>Delete"), '#', :id => 'delete-button', :class => "button disabled delete_button" %>
+  <h1><%= t 'browsercms.sitemap' %></h1>
+  <%= link_to span_tag(t 'browsercms.edit_page'), '#', :id => 'edit-button', :class => "button disabled left" %>
+  <%= link_to span_tag(t 'browsercms.edit_properties'), '#', :id => 'properties-button', :class => "button disabled right" %>
+  <%= link_to span_tag(t 'browsercms.add_page'), '#', :id => 'add-page-button', :class => "button disabled spacer left" %>
+  <%= link_to span_tag(t 'browsercms.add_section'), '#', :id => 'add-section-button', :class => "button disabled middle" %>
+  <%= link_to span_tag(t 'browsercms.add_link'), '#', :id => 'add-link-button', :class => "button disabled right" %>
+  <%= link_to span_tag("<span class=\"delete_img\">&nbsp;</span>"+t('browsercms.delete')), '#', :id => 'delete-button', :class => "button disabled delete_button" %>
   <br clear="all" />
 <% end %>
 
@@ -20,12 +20,12 @@
   <ul id="root_<%= @section.id %>" class="root" style="padding-left: 0">
     <li>
       <%= render :partial => "node", :locals => {
-          :node => @section, 
-          :node_type => "section", 
+          :node => @section,
+          :node_type => "section",
           :icon => action_icon(:home),
           :display => true
         } %>
     </li>
   </ul>
-  <%= render :partial => "section_node", :collection => @section.child_nodes.all(:order => 'position'), :locals => {:display => true, :root => true} %>    
+  <%= render :partial => "section_node", :collection => @section.child_nodes.all(:order => 'position'), :locals => {:display => true, :root => true} %>
 </div>

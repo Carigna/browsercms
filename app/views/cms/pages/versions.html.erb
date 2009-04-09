@@ -1,4 +1,4 @@
-<% @page_title = @toolbar_title = "List Versions / '#{@page.name}' Page" %>
+<% @page_title = @toolbar_title = t('browsercms.list_versions_title', :name => @page.name) %>
 <% content_for(:html_head) do %>
   <% javascript_tag do %>
     jQuery(function($){
@@ -7,7 +7,7 @@
       }, function(){
         $(this).removeClass('hover')
       }).click(function(){
-        var match = this.id.match(/(.*)_(\d+)/) 
+        var match = this.id.match(/(.*)_(\d+)/)
         var type = match[1];
         var id = match[2];
         $('table.data tbody tr').removeClass('selected');
@@ -34,10 +34,10 @@
 <% end %>
 <% content_for :functions do %>
   <%=  "<h1>#{ @toolbar_title }</h1>" %>
-  <%= link_to span_tag("view"), "#", :id => "view_button", :class => "button disabled" %>
-  <%= link_to span_tag("edit content"), "#", :id => "edit_content_button", :class => "button disabled" %>
-  <%= link_to span_tag("edit properties"), "#", :id => "edit_properties_button", :class => "button disabled" %>
-  <%= link_to span_tag("revert"), "#", :id => "revert_button", :class => "button disabled", :onclick => "$('#revert_form').submit(); return false;" %>
+  <%= link_to span_tag(t 'browsercms.view'), "#", :id => "view_button", :class => "button disabled" %>
+  <%= link_to span_tag(t 'browsercms.edit_content'), "#", :id => "edit_content_button", :class => "button disabled" %>
+  <%= link_to span_tag(t 'browsercms.edit_properties'), "#", :id => "edit_properties_button", :class => "button disabled" %>
+  <%= link_to span_tag(t 'browsercms.revert'), "#", :id => "revert_button", :class => "button disabled", :onclick => "$('#revert_form').submit(); return false;" %>
   <% form_tag '', :method => 'put', :id => "revert_form" do %>
   <%= hidden_field_tag :version, '', :id => 'revert_form_version'  %>
   <% end %>
@@ -48,11 +48,11 @@
   <table id="blocks" class="data">
     <thead>
       <tr>
-	<th class="first" colspan="2"><div class="dividers">Version</div></th>
-	<th colspan="2"><div class="dividers">Status</div></th>
-	<th><div class="dividers">Comment</div></th>
-	<th><div class="dividers">Date</div></th>
-	<th class="last" colspan="2"><div class="dividers">Editor</div></th>
+	<th class="first" colspan="2"><div class="dividers"><%= t 'browsercms.version' %></div></th>
+	<th colspan="2"><div class="dividers"><%= t 'browsercms.status' %></div></th>
+	<th><div class="dividers"><%= t 'browsercms.comment' %></div></th>
+	<th><div class="dividers"><%= t 'browsercms.date' %></div></th>
+	<th class="last" colspan="2"><div class="dividers"><%= t 'browsercms.editor' %></div></th>
       </tr>
     </thead>
     <tbody>
@@ -61,8 +61,8 @@
       <% current = @page.current_version.version == r.version %>
       <tr id="revision_<%= r.version %>" <%= 'class="current"' if current %>>
 	<td class="first"></td>
-	<td><div class="dividers"><%= "v.#{r.version}" %><%= ' (LIVE)' if @page.live_version && r.version == @page.live_version.version %><%= ' (CURRENT)' if current %></div></td>
-	<td class="block_status"><%= status_icon(publish_status) %></td><td><div class="dividers"><%= publish_status %></div></td>
+	<td><div class="dividers"><%= "v.#{r.version}" %> <%= t 'browsercms.live' if @page.live_version && r.version == @page.live_version.version %> <%= t 'browsercms.current' if current %></div></td>
+	<td class="block_status"><%= status_icon(publish_status) %></td><td><div class="dividers"><%= t ('browsercms.'+publish_status) %></div></td>
 	<td><div class="dividers"><%=h r.version_comment %></div></td>
 	<td><div class="dividers"><%= r.created_at.strftime("%b %d, %Y %I:%M %p") if r.created_at %></div></td>
 	<td><div><%= r.updated_by.login if r.updated_by %></div></td>

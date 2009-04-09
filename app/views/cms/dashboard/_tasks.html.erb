@@ -1,5 +1,5 @@
 <div class="dashboard_unit" id="tasks">
-  <h2 class="left">Tasks</h2>
+  <h2 class="left"><%= t 'browsercms.tasks' %></h2>
 
   <% form_tag complete_cms_tasks_path, :method => :put do %>
     <div class="roundedcorners" style="position: relative">
@@ -7,9 +7,9 @@
         <thead>
           <tr>
             <th class="select first unbordered">&nbsp;</th>
-            <th colspan="2"><div class="dividers">Name</div></th>
-            <th class="assigned_by"><div class="dividers">Assigned By</div></th>
-	          <th class="due_date">Due Date</th>
+            <th colspan="2"><div class="dividers"><%= t 'browsercms.name' %></div></th>
+            <th class="assigned_by"><div class="dividers"><%= t 'browsercms.assigned_by' %></div></th>
+	          <th class="due_date"><%= t 'browsercms.due_date' %></th>
 		  <th class="last">&nbsp;</th>
           </tr>
         </thead>
@@ -17,10 +17,10 @@
           <% if @incomplete_tasks.empty? %>
             <tr>
               <td class="first"></td>
-              <td colspan="3" style="letter-spacing: 2px; height: 30px; padding-top: 10px;">There are currently no tasks assigned to me.</td>
+              <td colspan="3" style="letter-spacing: 2px; height: 30px; padding-top: 10px;"><%= t 'browsercms.no_tasks' %></td>
 	      <td class="last"></td>
             </tr>
-          <% else %>  
+          <% else %>
             <% @incomplete_tasks.each do |task| %>
               <tr>
                 <td class="first"></td>

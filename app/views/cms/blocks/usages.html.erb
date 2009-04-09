@@ -1,4 +1,4 @@
-<% @page_title = "Content Library / View Usages" %>
+<% @page_title = t('browsercms.content_library')+" / View Usages" %>
 <% @toolbar_title = "Pages Using #{content_type.display_name} '#{ @block.name }'" %>
 <% content_for :html_head do %>
   <%= stylesheet_link_tag("cms/content_library") %>
@@ -24,7 +24,7 @@
     </tr>
   </thead>
   <% @pages.each do |page| %>
-    <% status = page.archived? ? :archived : page.status %>    
+    <% status = page.archived? ? :archived : page.status %>
     <tr>
       <td class="page_name"><%=  page.name %></td>
       <td class="path"><%=  link_to page.path, page.path %></td>

@@ -1,5 +1,5 @@
 <div class="dashboard_unit" id="page_drafts">
-  <h2 class="left">Page Drafts</h2>
+  <h2 class="left"><%= t 'browsercms.page_drafts' %></h2>
 
   <% form_tag publish_cms_pages_path, :method => :put do %>
     <div class="roundedcorners" style="position: relative">
@@ -7,15 +7,15 @@
         <thead>
           <tr>
             <th class="select first unbordered">&nbsp;</th>
-            <th colspan="2"><div class="dividers">Name</div></th>
-            <th><div class="dividers">User</div></th>
-	          <th class="last" colspan="2">Date</th>
+            <th colspan="2"><div class="dividers"><%= t 'browsercms.name' %></div></th>
+            <th><div class="dividers"><%= t 'browsercms.user' %></div></th>
+	          <th class="last" colspan="2"><%= t 'browsercms.date' %></th>
           </tr>
         </thead>
         <tbody>
           <% if @unpublished_pages.empty? %>
-            <tr><td colspan="3">All pages are published</td></tr>
-          <% else %>  
+            <tr><td colspan="3"><%= t 'browsercms.all_pages_are_published' %></td></tr>
+          <% else %>
             <% @unpublished_pages.each do |page| %>
               <tr>
                 <td class="first"></td>

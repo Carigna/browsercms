@@ -5,15 +5,15 @@
 <%= image_tag "cms/page_toolbar/page_toolbar_r.gif", :style => "float: right;" %>
 <div id="page_toolbar">
   <div id="status_div" class="<%= status %> page_attribute_div">
-    <div class="page_attribute_label">Status:</div>
+    <div class="page_attribute_label"><%= t 'browsercms.status' %>:</div>
     <div id="<%= status %>_page_status_container" class="page_attribute_value_container">
       <%= image_tag "cms/page_toolbar/page_toolbar_inset_#{ status }_l.gif", :style => "float: left;" %>
-      <div id="page_status" class="page_attribute_value"><%= status %></div>
+      <div id="page_status" class="page_attribute_value"><%= t('browsercms.'+status) %></div>
       <%= image_tag "cms/page_toolbar/page_toolbar_inset_#{ status }_r.gif", :style => "float: left;" %>
     </div>
   </div>
   <div class="page_attribute_div">
-    <div class="page_attribute_label">Section:</div>
+    <div class="page_attribute_label"><%= t 'browsercms.section' %>:</div>
     <div class="page_attribute_value_container">
       <%= image_tag "cms/page_toolbar/page_toolbar_inset_l.gif", :style => "float: left;" %>
       <div class="page_attribute_value"><%= link_to h(@page.section.name), cms_sections_path(:page_id => @page), :target => "_top" %></div>
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="page_attribute_div">
-    <div class="page_attribute_label">Page:</div>
+    <div class="page_attribute_label"><%= t 'browsercms.page' %>:</div>
     <div class="page_attribute_value_container">
       <%= image_tag "cms/page_toolbar/page_toolbar_inset_l.gif", :style => "float: left;" %>
       <div class="page_attribute_value"><%= h(@page.name) %></div>
@@ -29,7 +29,7 @@
     </div>
   </div>
   <div class="page_attribute_div">
-    <div class="page_attribute_label">Template:</div>
+    <div class="page_attribute_label"><%= t 'browsercms.template' %>:</div>
     <div class="page_attribute_value_container">
       <%= image_tag "cms/page_toolbar/page_toolbar_inset_l.gif", :style => "float: left;" %>
       <div class="page_attribute_value"><%= h(@page.template_name) %></div>
@@ -37,45 +37,45 @@
     </div>
   </div>
   <div class="page_attribute_div">
-    <div class="page_attribute_label">Version:</div>
+    <div class="page_attribute_label"><%= t 'browsercms.version' %>:</div>
     <div class="page_attribute_value_container">
       <%= image_tag "cms/page_toolbar/page_toolbar_inset_l.gif", :style => "float: left;" %>
-      <div class="page_attribute_value"><%= h(@page.version) %><%= ' (LIVE)' if @page.live_version && @page.version == @page.live_version.version %></div>
+      <div class="page_attribute_value"><%= h(@page.version) %> <%= t('browsercms.live') if @page.live_version && @page.version == @page.live_version.version %></div>
       <%= image_tag "cms/page_toolbar/page_toolbar_inset_r.gif", :style => "float: left;" %>
     </div>
   </div>
-</div>  
+</div>
 <div class="buttons">
-  <%= link_to("<span>Publish</span>", @page.published? ? @page.path : publish_cms_page_path(@page), :target => "_top", :class => "http_put button publish_button#{' disabled' if !current_user.able_to?(:publish_content) || @page.published? || !@page.current_version?} left") %>
-  <%= link_to "<span>Assign</span>", new_cms_page_task_path(@page), :class => "button#{ ' disabled' if @page.assigned_to == current_user} middle", :target => "_top" %>
-  <%= link_to "<span>Complete Task</span>", @page.current_task ? complete_cms_task_path(@page.current_task) : '#', :class => "http_put button#{ ' disabled' unless @page.assigned_to == current_user} right", :target => "_top" %>
+  <%= link_to(span_tag(t 'browsercms.publish'), @page.published? ? @page.path : publish_cms_page_path(@page), :target => "_top", :class => "http_put button publish_button#{' disabled' if !current_user.able_to?(:publish_content) || @page.published? || !@page.current_version?} left") %>
+  <%= link_to span_tag(t 'browsercms.assign'), new_cms_page_task_path(@page), :class => "button#{ ' disabled' if @page.assigned_to == current_user} middle", :target => "_top" %>
+  <%= link_to span_tag(t 'browsercms.complete_task'), @page.current_task ? complete_cms_task_path(@page.current_task) : '#', :class => "http_put button#{ ' disabled' unless @page.assigned_to == current_user} right", :target => "_top" %>
 
-  <%= link_to "<span>Edit Properties</span>", [:edit, :cms, @page], :class => "spacer button#{' disabled' if !@page.current_version?}", :target => "_top" %>
-  
-  <%= link_to "<span>List Versions</span>", versions_cms_page_path(@page), :target => "_top", :class => "spacer button left" %>
+  <%= link_to span_tag(t 'browsercms.edit_properties'), [:edit, :cms, @page], :class => "spacer button#{' disabled' if !@page.current_version?}", :target => "_top" %>
+
+  <%= link_to span_tag(t 'browsercms.list_versions'), versions_cms_page_path(@page), :target => "_top", :class => "spacer button left" %>
   <% able_to? :publish_content do %>
-    <% if @page.current_version? %>  
-      <%= link_to "<span><span class=\"delete_img\">&nbsp;</span>Delete</span>", [:cms, @page], :title => "Are you sure you want to delete '#{@page.name}'?", :target => "_top", :class => "confirm_with_title http_delete button#{' disabled' if !@page.current_version?} right" %>
+    <% if @page.current_version? %>
+      <%= link_to "<span><span class=\"delete_img\">&nbsp;</span>"+t('browsercms.delete')+"</span>", [:cms, @page], :title => "Are you sure you want to delete '#{@page.name}'?", :target => "_top", :class => "confirm_with_title http_delete button#{' disabled' if !@page.current_version?} right" %>
     <% else %>
-      <%= link_to "<span>Revert to this Version</span>", revert_to_cms_page_path(@page, :version => @page.version), :class => "button http_put", :target => "_top" %>
+      <%= link_to span_tag(t 'browsercms.revert_to_this_version'), revert_to_cms_page_path(@page, :version => @page.version), :class => "button http_put", :target => "_top" %>
     <% end %>
   <% end %>
 
   <div id="visual_editor_toggle">
     <% if @page.current_version? %>
-        <div class="visual_editor_label">Visual Editor:</div>
+        <div class="visual_editor_label"><%= t 'browsercms.visual_editor' %>:</div>
         <div class="visual_editor_value_container">
           <% if @mode == "edit" %>
-	    <div><span>ON</span></div>
+	    <div><span><%= t('browsercms.on') %></span></div>
           <% else %>
-	    <div><span>OFF</span></div>
+	    <div><span><%= t('browsercms.off') %></span></div>
           <% end %>
         </div>
         <div class="visual_editor_toggle_container">
           <% if @mode == "edit" %>
-          <div class="sm_button"><%= link_to "<span>TURN OFF</span>", url_with_mode(request.referrer, "view"), :target => "_top", :class => "sm_button" %></div>    
+          <div class="sm_button"><%= link_to span_tag(t 'browsercms.turn_off'), url_with_mode(request.referrer, "view"), :target => "_top", :class => "sm_button" %></div>
 	  <% else %>
-          <div class="sm_button"><%= link_to "<span>TURN ON</span>", url_with_mode(request.referrer, "edit"), :target => "_top", :class => "sm_button" %></div>    	  <% end %>
+          <div class="sm_button"><%= link_to span_tag(t 'browsercms.turn_on'), url_with_mode(request.referrer, "edit"), :target => "_top", :class => "sm_button" %></div>    	  <% end %>
 	</div>
 <% else %>
 	</div>

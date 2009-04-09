@@ -1,17 +1,17 @@
-<% @page_title = "Content Library / List of Versions" %>
-<% @toolbar_title = "List Versions / '#{@block.name}' #{content_type.display_name}" %>
+<% @page_title = t 'browsercms.version_list_title' %>
+<% @toolbar_title = t('browsercms.list_block_versions', :name => @block.name, :display_name => content_type.display_name) %>
 <% content_for :html_head do %>
 <%= stylesheet_link_tag("cms/content_library") %>
   <% javascript_tag do %>
     jQuery(function($){
       var collectionName = '<%= @block.class.name.underscore.pluralize %>'
-      
+
       $('table.data tbody tr').hover(function(){
         $(this).addClass('hover')
       }, function(){
         $(this).removeClass('hover')
       }).click(function(){
-        var match = this.id.match(/(.*)_(\d+)/) 
+        var match = this.id.match(/(.*)_(\d+)/)
         var id = match[2]
         $('table.data tbody tr').removeClass('selected')
         $(this).addClass('selected')
@@ -33,27 +33,27 @@
 
 <% content_for :functions do %>
   <%= render :partial => 'cms/blocks/toolbar' %>
-  <%= link_to span_tag("Revert"), "#", :id => "revert_button", :class => "http_put button disabled"  %>
+  <%= link_to span_tag( t 'browsercms.revert' ), "#", :id => "revert_button", :class => "http_put button disabled"  %>
 <% end %>
 
 <div class="roundedcorners">
   <table id="blocks" class="data">
     <thead>
       <tr>
-        <th colspan="2" class="first"><div class="dividers">Version</div></th>
+        <th colspan="2" class="first"><div class="dividers"><%= t 'browsercms.version' %></div></th>
         <% if content_type.model_class.publishable? %>
           <th colspan="2">
-            <div class="dividers">Status</div>
+            <div class="dividers"><%= t 'browsercms.status' %></div>
           </th>
         <% end %>
         <th>
-          <div class="dividers">Comment</div>
+          <div class="dividers"><%= t 'browsercms.comment' %></div>
         </th>
         <th>
-          <div class="dividers">Date</div>
+          <div class="dividers"><%= t 'browsercms.date' %></div>
         </th>
         <th class="last" colspan="2">
-          <div class="dividers">Editor</div>
+          <div class="dividers"><%= t 'browsercms.editor' %></div>
         </th>
       </tr>
     </thead>
@@ -65,14 +65,14 @@
           <td>
             <div class="dividers">
               <%= "v. #{r.version}" %>
-              <%= '(LIVE)' if @block.live_version && r.version == @block.live_version.version %>
-              <%= '<span class="current">(CURRENT)</span>' if i == 0 %>
+              <%= t('browsercms.live') if @block.live_version && r.version == @block.live_version.version %>
+              <%= '<span class="current">'+t('browsercms.current')+'</span>' if i == 0 %>
             </div>
           </td>
           <% if content_type.model_class.publishable? %>
             <td class="block_status"><%= status_icon(published_status) %></td>
             <td>
-              <div class="dividers"><%= published_status %></div> 
+              <div class="dividers"><%= t('browsercms.'+published_status) %></div>
             </td>
           <% end %>
           <td>
